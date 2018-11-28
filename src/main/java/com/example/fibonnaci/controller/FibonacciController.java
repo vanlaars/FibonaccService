@@ -19,11 +19,11 @@ public class FibonacciController {
     }
 
 
-    @RequestMapping(value = "/jenkins/{id}", method = POST)
-    @ResponseBody
-    public String getFoosBySimplePathWithPathVariable(
-            @PathVariable String id) {
-        return "Get a specific Foo with id=" + id;
-    }
+//    @RequestMapping(value = "/jenkins/{id}", method = POST)
+//    @ResponseBody
+//    public String getFoosBySimplePathWithPathVariable(
+//            @PathVariable String id) {
+//        return "Get a specific Foo with id=" + id;
+//    }
 
 }
