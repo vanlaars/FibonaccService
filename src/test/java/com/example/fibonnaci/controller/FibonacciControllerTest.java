@@ -34,14 +34,8 @@ public class FibonacciControllerTest {
 
     @Test
     public void test_fibonacci_controller_error(){
-        final MockHttpServletRequest request = new MockHttpServletRequest();
-
-        // when
-        request.setLocalAddr("http://localhost:80/nothere");
-
-        //then
-        Assert.assertTrue(errorContoller.handleError(request).equals("error"));
-
+        Assert.assertTrue(errorContoller.handle404Exception().equals("404"));
+        Assert.assertTrue(errorContoller.handle500Exception().equals("500"));
     }
 
 
