@@ -33,10 +33,15 @@ public class FibonacciControllerTest {
     }
 
     @Test
-    public void test_fibonacci_controller_error(){
+    public void test_fibonacci_controller_error_400(){
         Assert.assertTrue(errorContoller.handle404Exception().equals("404"));
+    }
+
+    @Test
+    public void test_fibonacci_controller_error_500(){
         Assert.assertTrue(errorContoller.handle500Exception().equals("500"));
     }
+
 
 
 }
