@@ -5,14 +5,9 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.HttpStatus;
 import org.springframework.mock.web.MockHttpServletRequest;
-
-import javax.servlet.RequestDispatcher;
-import javax.servlet.http.HttpServletRequest;
 
 @RunWith(MockitoJUnitRunner.class)
 @SpringBootTest(classes = FibonacciController.class)
@@ -29,21 +24,23 @@ public class FibonacciControllerTest {
 
     @Test
     public void test_fibonacci_controller(){
-
+        // when
         final FibonacciModel fibonnaci = contoller.fibonnaci(0);
 
+        // then
         Assert.assertTrue(fibonnaci.getFibonacciNumber() == 1);
 
     }
 
     @Test
     public void test_fibonacci_controller_error(){
-        MockHttpServletRequest request = new MockHttpServletRequest();
+        final MockHttpServletRequest request = new MockHttpServletRequest();
+
+        // when
         request.setLocalAddr("http://localhost:80/nothere");
 
-        final String actualValue = errorContoller.handleError(request);
-
-        Assert.assertTrue(actualValue.equals("error"));
+        //then
+        Assert.assertTrue(errorContoller.handleError(request).equals("error"));
 
     }
 
